@@ -40,7 +40,7 @@ for dname in sorted(glob.glob('data/annotations/set*')):
                 for id, pos, occl, lock, posv in zip(
                         obj['id'][0], obj['pos'][0], obj['occl'][0],
                         obj['lock'][0], obj['posv'][0]):
-                    keys = obj.dtype.names
+                    keys =['id','pos','occl','lock','posv'] #obj.dtype.names <- doesn't work in all cases, example set01/V003
                     id = int(id[0][0]) - 1  # MATLAB is 1-origin
                     pos = pos[0].tolist()
                     occl = int(occl[0][0])
